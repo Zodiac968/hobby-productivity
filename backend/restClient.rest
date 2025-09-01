@@ -1,0 +1,39 @@
+###
+GET http://localhost:5000/api/loginCheck
+Content-Type: application/json
+
+{
+    "token" : ""
+}
+
+###Login
+POST http://localhost:5000/account/login
+Content-Type: application/json
+
+{
+    "email": "reihan@gmail.com",
+    "password": "1234"
+}
+
+###Register
+POST http://localhost:5000/account/register
+Content-Type: application/json
+
+{
+    "name": "Mohamed Reihan",
+    "password": "1234",
+    "email": "reihan@gmail.com"
+}
+
+###Check Login
+GET http://localhost:5000/api/loginCheck
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjViOWRmZWY4ZjMwOGI5Y2MxNzFmYyIsImlhdCI6MTc1Njc0MDIxOSwiZXhwIjoxNzU2NzQzODE5fQ.BhTDpGIiCLwdImLyqCDzh1NcZHriOSXtIP4F4Alyfus
+
+# {
+#   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjViOWRmZWY4ZjMwOGI5Y2MxNzFmYyIsImlhdCI6MTc1Njc0MDIxOSwiZXhwIjoxNzU2NzQzODE5fQ.BhTDpGIiCLwdImLyqCDzh1NcZHriOSXtIP4F4Alyfus",
+#   "user": {
+#     "id": "68b5b9dfef8f308b9cc171fc",
+#     "email": "reihan@gmail.com",
+#     "name": "Mohamed Reihan"
+#   }
+# }

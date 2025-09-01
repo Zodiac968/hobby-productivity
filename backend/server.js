@@ -4,6 +4,8 @@ import dotenv from "dotenv"
 import cors from "cors"
 import path from "path"
 import { fileURLToPath } from "url"
+import auth from "./middleware/auth.js"
+import User from "./models/User.js"
 
 //Load environment variables from .env file to process.env
 dotenv.config();
@@ -34,6 +36,13 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
   });
 }
+import authRoutes from "./routes/authRoutes.js"
+
+app.use("/account", authRoutes);
+app.get("/api/loginCheck", auth, async (req, res) => {
+  const user = await User.findById(req.user.id);
+  res.json({status: "User logged in", username: user.name});
+})
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`Server is listening at http://localhost:${PORT}`));
