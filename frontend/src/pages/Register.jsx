@@ -1,33 +1,43 @@
 import axiosInstance from "../axios.js";
 import { useContext, useState } from "react";
-import { AuthContext } from "./AuthContext.jsx";
+import { Link, useNavigate } from "react-router-dom";
 
-function LoginPage() {
-  const { login } = useContext(AuthContext);
+function Register() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axiosInstance.post("/account/login", {
+      const response = await axiosInstance.post("/account/register", {
+        name,
         email,
         password,
       });
-      login(response.data.user, response.data.token); //Stores it in context and localStorage
-      setErr("Login Sucessful");
+      setErr("Registered Successfully");
     } catch (e) {
-      setErr(e.response?.data?.error || "Login Failed");
+      setErr(e.response?.data?.error || "Registration Failed");
     }
   };
   return (
     <>
       <div>
-        <h2>Login</h2>
+        <h2>Register</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <label for="email">Email</label>
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
@@ -36,7 +46,7 @@ function LoginPage() {
             />
           </div>
           <div>
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               id="password"
@@ -44,10 +54,10 @@ function LoginPage() {
               required
             ></input>
           </div>
-          <button type="submit">Login</button>
+          <button type="submit">Register</button>
           <div>
             <p>
-              Dont have an account? <a href="#">Register</a>
+              Go to <Link to="/login">Login</Link>
             </p>
           </div>
         </form>
@@ -57,4 +67,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default Register;

@@ -1,25 +1,27 @@
 import { useState, useEffect } from "react";
 // import "./App.css";
-import LoginPage from "./pages/LoginPage.jsx";
+import Login from "./pages/Login.jsx";
+import { Route, Routes } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import Register from "./pages/Register.jsx";
 
 function App() {
-  // const [message, setMessage] = useState("");
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
 
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/api/check")
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => setMessage(data.status))
-  //     .catch((err) => console.log(err));
-  // }, []);
-
-  // return (
-  //   <>
-  //     <h2>{message}</h2>
-  //   </>
-  // );
-  return <LoginPage />;
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
+  );
 }
 
 export default App;
