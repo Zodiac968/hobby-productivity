@@ -9,6 +9,6 @@ export default function (req, res, next) {
         next();
     }
     catch(err){
-        return res.status(500).json({error: err.message});
+        return res.status(401).json({error: "Token is not valid or expired."});
     }
 }

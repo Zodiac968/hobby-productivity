@@ -32,7 +32,7 @@ app.post("/login", async (req, res) => {
         const compare = await bcrypt.compare(password, user.password);
         if(!compare) return res.status(400).json({error: "Invalid Credentials"});
 
-        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET_KEY, {expiresIn: "1h"});
+        const token = jwt.sign({id: user._id}, process.env.JWT_SECRET_KEY, {expiresIn: "3h"});
         res.json({token, user: {id: user._id, email, name: user.name} });
     }
     catch(err){
