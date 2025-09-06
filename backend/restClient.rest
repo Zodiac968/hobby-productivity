@@ -30,10 +30,37 @@ GET http://localhost:5000/api/loginCheck
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjViOWRmZWY4ZjMwOGI5Y2MxNzFmYyIsImlhdCI6MTc1Njc0MDIxOSwiZXhwIjoxNzU2NzQzODE5fQ.BhTDpGIiCLwdImLyqCDzh1NcZHriOSXtIP4F4Alyfus
 
 # {
-#   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjViOWRmZWY4ZjMwOGI5Y2MxNzFmYyIsImlhdCI6MTc1Njc0MDIxOSwiZXhwIjoxNzU2NzQzODE5fQ.BhTDpGIiCLwdImLyqCDzh1NcZHriOSXtIP4F4Alyfus",
+#   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjViOWRmZWY4ZjMwOGI5Y2MxNzFmYyIsImlhdCI6MTc1NzEyMTY1OCwiZXhwIjoxNzU3MTI1MjU4fQ.LeD1PkVE4DxDNPTLg2IL9Sy8t1bA5yopCzDuhm-4NeQ",
 #   "user": {
 #     "id": "68b5b9dfef8f308b9cc171fc",
 #     "email": "reihan@gmail.com",
 #     "name": "Mohamed Reihan"
 #   }
 # }
+
+###Create Task
+POST http://localhost:5000/task
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjViOWRmZWY4ZjMwOGI5Y2MxNzFmYyIsImlhdCI6MTc1NzEyMTY1OCwiZXhwIjoxNzU3MTI1MjU4fQ.LeD1PkVE4DxDNPTLg2IL9Sy8t1bA5yopCzDuhm-4NeQ
+Content-Type: application/json
+
+{
+    "title": "Second Task",
+    "description": "Second task of the day"
+}
+
+###Get Task
+GET http://localhost:5000/task
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjViOWRmZWY4ZjMwOGI5Y2MxNzFmYyIsImlhdCI6MTc1NzEyMTY1OCwiZXhwIjoxNzU3MTI1MjU4fQ.LeD1PkVE4DxDNPTLg2IL9Sy8t1bA5yopCzDuhm-4NeQ
+
+###Update task
+PUT http://localhost:5000/task/68bb8dad3a02acecd5edd05f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjViOWRmZWY4ZjMwOGI5Y2MxNzFmYyIsImlhdCI6MTc1NzEyMTY1OCwiZXhwIjoxNzU3MTI1MjU4fQ.LeD1PkVE4DxDNPTLg2IL9Sy8t1bA5yopCzDuhm-4NeQ
+Content-Type: application/json
+
+{
+    "description": "Second task of the month"
+}
+
+###Delete task
+DELETE http://localhost:5000/task/68bb8dad3a02acecd5edd05f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjViOWRmZWY4ZjMwOGI5Y2MxNzFmYyIsImlhdCI6MTc1NzEyMTY1OCwiZXhwIjoxNzU3MTI1MjU4fQ.LeD1PkVE4DxDNPTLg2IL9Sy8t1bA5yopCzDuhm-4NeQ
