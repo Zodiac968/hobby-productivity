@@ -80,7 +80,7 @@ export function TaskBoard() {
   }, []);
   return (
     <div>
-      <div>
+      <div className="flex items-start space-x-10 m-6 mx-8">
         <TaskColumn
           title="Todo"
           status="todo"

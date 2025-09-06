@@ -3,7 +3,9 @@ import { TaskBoard } from "../components/TaskBoard.jsx";
 function Dashboard() {
   return (
     <>
-      <h1>Dashboard</h1>
+      <nav className="bg-blue-800 p-2">
+        <h1 className="text-3xl text-white font-medium mx-4">Dashboard</h1>
+      </nav>
       <TaskBoard />
     </>
   );
