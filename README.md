@@ -36,7 +36,6 @@ Supports **user authentication, CRUD tasks, and drag-and-drop board management**
 - Express  
 - MongoDB (Mongoose)  
 - JWT Authentication  
-- Socket.IO  
 
 **Deployment**  
 - Render (Backend + serving frontend)  
@@ -59,8 +58,7 @@ project-root/
 ├── frontend/             # React (Vite) app
 │   ├── src/
 │   │   ├── components/   # UI components
-│   │   ├── pages/        # Login, Register, Dashboard
-│   │   ├── context/      # AuthContext, TaskContext
+│   │   ├── pages/        # Login, Register, Dashboard, AuthContext
 │   │   └── App.jsx
 │   └── package.json
 │
