@@ -65,7 +65,11 @@ function TaskCard({ task, onClick, onDelete }) {
       <div>
         <h4 className="text-gray-800 text-md">{task.title}</h4>
         {task.deadline && (
-          <p className="text-red-500 text-sm">
+          <p
+            className={`text-red-500 text-sm ${
+              task.status === "done" ? "line-through" : ""
+            }`}
+          >
             Deadline: {new Date(task.deadline).toLocaleDateString()}
           </p>
         )}
