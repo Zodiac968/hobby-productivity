@@ -16,7 +16,7 @@ app.use(express.json());
 
 //If in dev mode, use cors for communication between frontend and backend
 if(process.env.NODE_ENV === "development"){
-    app.use(cors({origin: process.env.CLIENT_URL || "http://localhost:5173", credentials: true}));
+    // app.use(cors({origin: process.env.CLIENT_URL || "http://localhost:5173", credentials: true}));
 }
 
 //Connect to mongodb server
@@ -30,7 +30,7 @@ app.get("/api/check", (req, res) => {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production" || true) {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
