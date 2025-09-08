@@ -29,13 +29,6 @@ app.get("/api/check", (req, res) => {
 //Serve React in Production UNDERSTAND LATER
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-if (process.env.NODE_ENV === "production" || true) {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
-  });
-}
 import authRoutes from "./routes/authRoutes.js"
 import taskRoutes from "./routes/taskRoutes.js"
 app.use("/api/account", authRoutes);
@@ -45,6 +38,13 @@ app.get("/api/loginCheck", auth, async (req, res) => {
   const user = await User.findById(req.user.id);
   res.json({status: "User logged in", username: user.name});
 })
+
+if (process.env.NODE_ENV === "production" || true) {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+  });
+}
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`Server is listening at http://localhost:${PORT}`));
