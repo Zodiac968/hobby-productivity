@@ -38,8 +38,8 @@ if (process.env.NODE_ENV === "production") {
 }
 import authRoutes from "./routes/authRoutes.js"
 import taskRoutes from "./routes/taskRoutes.js"
-app.use("/account", authRoutes);
-app.use("/task", taskRoutes);
+app.use("/api/account", authRoutes);
+app.use("/api/task", taskRoutes);
 
 app.get("/api/loginCheck", auth, async (req, res) => {
   const user = await User.findById(req.user.id);
