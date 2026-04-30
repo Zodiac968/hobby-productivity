@@ -1,4 +1,4 @@
-# 📝 Kanban Board – MERN Stack Project  
+# 📝 TaskFlow — MERN-based Kanban Project Management System
 
 ![React](https://img.shields.io/badge/Frontend-React-blue?logo=react)  
 ![Node.js](https://img.shields.io/badge/Backend-Node.js-green?logo=node.js)  
